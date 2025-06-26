@@ -36,7 +36,7 @@ export const BestsellersCarousel = ({ bookAuthorPairs }: BestsellersCarouselProp
                     {bookAuthorPairs.map((pair, key) => (
                         <CarouselItem
                             key={key}
-                            className="flex flex-col items-center text-center px-6 basis-1/5"
+                            className="flex flex-col items-center text-center px-6 basis-1/5 "
                         >
                             <Image
                                 width={150}
