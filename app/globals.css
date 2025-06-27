@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Limelight&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Viaoda+Libre&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -175,15 +176,20 @@
   }
 }
 
-.limelight {
-  font-family: "Limelight", sans-serif;
+.playfair {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
   font-style: normal;
 }
-
 
 .baskervville {
   font-family: "Baskervville", serif;
   font-optical-sizing: auto;
   font-weight: 500;
+  font-style: normal;
+}
+
+.viaoda{
+  font-family: "Viaoda Libre", serif;
   font-style: normal;
 }

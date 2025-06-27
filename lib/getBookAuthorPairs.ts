@@ -1,21 +1,16 @@
-import { cache } from 'react';
 import { supabase } from '@/lib/supabaseClient'
 
-
-export const getBookAuthorPairs = cache(async () => {
+export async function getBookAuthorPairs()  {
   const { data, error } = await supabase
     .from('bookAuthor')
-    .select(`bookId,
+    .select(`
+      bookId,
       authorId,
-      books (
-        id,
+      books(
         title,
-        year,
-        cover_pic,
-        isbn
+        cover_pic
       ),
-      authors (
-        id,
+      authors(
         firstname,
         lastname,
         middlename
@@ -24,5 +19,5 @@ export const getBookAuthorPairs = cache(async () => {
 
   if (error) throw new Error(error.message);
 
-  return data;
-});
+  return data; // cast if needed
+}

@@ -1,19 +1,17 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { BannerCarousel } from "@/components/BannerCarousel";
 import { BestsellersCarousel } from "@/components/BestsellersCarousel";
-import { getBookAuthorPairs } from "@/lib/getBookAuthorPairs";
+import { getBestsellers } from "@/lib/getBestSellers";
 
 
 export default async function Home() {
-    const bookAuthorPairs = await getBookAuthorPairs();
+    const bestsellers = await getBestsellers();
 
 
   return (
     <div className="">
       <BannerCarousel />
-      <BestsellersCarousel bookAuthorPairs={bookAuthorPairs} />
+      <BestsellersCarousel bookAuthorPairs={bestsellers} />
     </div>
   )
 }
