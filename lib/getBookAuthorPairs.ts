@@ -1,23 +1,39 @@
-import { supabase } from '@/lib/supabaseClient'
+import { cache } from 'react';
+import { supabase } from '@/lib/supabaseClient';
+import { BookAuthorGenre } from '@/types/book';
 
-export async function getBookAuthorPairs()  {
+export const getBookAuthorPairs = cache(async (): Promise<BookAuthorGenre[]> => {
   const { data, error } = await supabase
-    .from('bookAuthor')
+    .from('books')
     .select(`
-      bookId,
-      authorId,
-      books(
-        title,
-        cover_pic
+      id,
+      title,
+      cover_pic,
+      bookAuthor (
+        authors (
+          firstname,
+          lastname,
+          middlename
+        )
       ),
-      authors(
-        firstname,
-        lastname,
-        middlename
+      bookGenres (
+        genres (
+          id,
+          genre
+        )
       )
     `);
 
   if (error) throw new Error(error.message);
 
-  return data; // cast if needed
-}
+  // Fix: Map bookGenres.genres from array to single object
+  return (data ?? []).map((book: any) => ({
+    ...book,
+    bookAuthor: (book.bookAuthor ?? []).map((ba: any) => ({
+      authors: ba.authors
+    })),
+    bookGenres: (book.bookGenres ?? []).map((bg: any) => ({
+      genres: Array.isArray(bg.genres) ? bg.genres[0] : bg.genres
+    }))
+  })) as BookAuthorGenre[];
+});

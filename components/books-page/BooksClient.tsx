@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { BookAuthorPair } from '@/types/book'
-
+import { BookAuthorGenre } from '@/types/book'
+import { Sidebar } from "./sidebar";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -11,26 +11,54 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { BooksDisplay } from "./displayBooks";
 
+interface Genre {
+  id: number;
+  genre: string;
+}
 
-export const BooksClient = ({ initialBooks }: { initialBooks: BookAuthorPair[] }) => {
+export const BooksClient = ({
+  initialBooks,
+  genres,
+}: {
+  initialBooks: BookAuthorGenre[],
+  genres: Genre[]
+}) => {
   const [books, setBooks] = useState(initialBooks)
+  const [selectedGenreIds, setSelectedGenreIds] = useState<number[]>([])
 
-  const handleSortToggle = (asc: boolean) => {
-    const sorted = [...books].sort((a, b) =>
-      asc
-        ? a.books.title.localeCompare(b.books.title)
-        : b.books.title.localeCompare(a.books.title)
+  useEffect(() => {
+    if (selectedGenreIds.length === 0) {
+      setBooks(initialBooks)
+    } else {
+      setBooks(
+        initialBooks.filter(book =>
+          book.bookGenres.some(bg =>
+            selectedGenreIds.includes(bg.genres.id)
+          )
+        )
+      )
+    }
+  }, [selectedGenreIds, initialBooks])
+
+  const handleGenreChange = (genreId: number, checked: boolean) => {
+    setSelectedGenreIds(prev =>
+      checked ? [...prev, genreId] : prev.filter(id => id !== genreId)
     )
-    setBooks(sorted)
   }
 
   return (
-      <div className="flex flex-col px-10 py-10 w-full">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+    <div className="flex flex-row w-full">
+      <Sidebar
+        genres={genres}
+        selectedGenreIds={selectedGenreIds}
+        onGenreChange={handleGenreChange}
+      />
+      <div className="flex flex-col px-10 py-10 mr-29 w-full ">
+        <div className="flex flex-row items-center gap-x-3">
           <div className="relative w-full ">
             <input
               placeholder="Search..."
-              className="pl-12 pr-4 py-2 w-full border rounded-full border-gray-300"
+              className="pl-12 pr-4 py-2 w-full border rounded-full border-gray-300 bg-[#fdfdfd]"
             />
             <svg
               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"
@@ -45,7 +73,6 @@ export const BooksClient = ({ initialBooks }: { initialBooks: BookAuthorPair[] }
               />
             </svg>
           </div>
-
           <div>
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-2 text-[#132934] space-x-10 font-semibold cursor-pointer outline-none">
@@ -62,10 +89,8 @@ export const BooksClient = ({ initialBooks }: { initialBooks: BookAuthorPair[] }
             </DropdownMenu>
           </div>
         </div>
-
         <BooksDisplay books={books} />
       </div>
-
-
+    </div >
   )
 }

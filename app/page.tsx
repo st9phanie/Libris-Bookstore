@@ -1,17 +1,14 @@
-import Link from "next/link";
 import { BannerCarousel } from "@/components/BannerCarousel";
 import { BestsellersCarousel } from "@/components/BestsellersCarousel";
-import { getBestsellers } from "@/lib/getBestSellers";
-
+import { getBookAuthorPairs } from "@/lib/getBookAuthorPairs";
 
 export default async function Home() {
-    const bestsellers = await getBestsellers();
-
-
+    const bookAuthorPairs = await getBookAuthorPairs()
+  
   return (
     <div className="">
       <BannerCarousel />
-      <BestsellersCarousel bookAuthorPairs={bestsellers} />
+      <BestsellersCarousel bookAuthorPairs={bookAuthorPairs}/>
     </div>
   )
 }

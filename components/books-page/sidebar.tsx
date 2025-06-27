@@ -1,3 +1,5 @@
+"use client"
+
 import {
     Accordion,
     AccordionContent,
@@ -7,13 +9,18 @@ import {
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 
-interface SidebarProps {
-  genres: { genre: string }[]
+interface Genre {
+    id: number;
+    genre: string;
 }
 
+interface SidebarProps {
+    genres: Genre[];
+    selectedGenreIds: number[];
+    onGenreChange: (genreId: number, checked: boolean) => void;
+}
 
-export const Sidebar = ({ genres }: SidebarProps) => {
-
+export const Sidebar = ({ genres, selectedGenreIds, onGenreChange }: SidebarProps) => {
     return (
         <div className="w-1/4 bg-[#fdfdfd] shadow-lg border-r">
             <Accordion
@@ -25,17 +32,20 @@ export const Sidebar = ({ genres }: SidebarProps) => {
                 <AccordionItem value="item-1">
                     <AccordionTrigger>Genres</AccordionTrigger>
                     <AccordionContent className="flex flex-col gap-4 text-balance">
-                        {genres.map((genre, key) => (
-                            <div key={key} className="flex items-center gap-3 text-gray-600">
-                                <Checkbox id={genre.genre} />
-                                <Label htmlFor={genre.genre}>{genre.genre}</Label>
+                        {genres.map((genre) => (
+                            <div key={genre.id} className="flex items-center gap-3">
+                                <Checkbox
+                                    id={String(genre.id)}
+                                    checked={selectedGenreIds.includes(genre.id)}
+                                    onCheckedChange={(checked) =>
+                                        onGenreChange(genre.id, Boolean(checked))
+                                    }
+                                />
+                                <Label htmlFor={String(genre.id)}>{genre.genre}</Label>
                             </div>
-                        ))
-                        }
+                        ))}
                     </AccordionContent>
                 </AccordionItem>
-
-
             </Accordion>
         </div>
     )
