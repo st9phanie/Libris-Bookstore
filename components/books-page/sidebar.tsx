@@ -22,16 +22,16 @@ interface SidebarProps {
 
 export const Sidebar = ({ genres, selectedGenreIds, onGenreChange }: SidebarProps) => {
     return (
-        <div className="w-1/4 bg-[#fdfdfd] shadow-lg border-r">
+        <div className="w-1/4 bg-[#fdfdfd] shadow-lg border-r px-10">
             <Accordion
                 type="single"
                 collapsible
-                className="w-full px-4"
+                className="w-full text-right"
                 defaultValue="item-1"
             >
                 <AccordionItem value="item-1">
-                    <AccordionTrigger>Genres</AccordionTrigger>
-                    <AccordionContent className="flex flex-col gap-4 text-balance">
+                    <AccordionTrigger className="">Genres</AccordionTrigger>
+                    <AccordionContent className="flex flex-col gap-4 text-balance capitalize">
                         {genres.map((genre) => (
                             <div key={genre.id} className="flex items-center gap-3">
                                 <Checkbox

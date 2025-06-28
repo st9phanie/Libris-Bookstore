@@ -10,7 +10,8 @@ export const getBestsellers = cache(async () => {
         id,
         books (
           title,
-          cover_pic
+          cover_pic,
+          price
         ),
         authors (
           firstname,

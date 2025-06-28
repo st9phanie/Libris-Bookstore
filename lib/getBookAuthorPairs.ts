@@ -9,6 +9,7 @@ export const getBookAuthorPairs = cache(async (): Promise<BookAuthorGenre[]> => 
       id,
       title,
       cover_pic,
+      price,
       bookAuthor (
         authors (
           firstname,

@@ -2,6 +2,7 @@ export interface BookAuthorGenre {
   id: number;
   title: string;
   cover_pic: string;
+  price:number;
   bookAuthor: {
     authors: {
       firstname?: string;
