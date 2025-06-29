@@ -28,8 +28,11 @@ export const SortAZ = ({ onToggle }: SortAZProps) => {
   return (
     <div className="cursor-pointer border px-3 py-1 bg-[#EBEBE5]">
       <DropdownMenu>
-        <DropdownMenuTrigger className="outline-none">
-          <p>Sort by: {az ? "Title A - Z" : "Title Z - A"}</p>
+        <DropdownMenuTrigger className="outline-none flex flex-row items-center justify-between gap-x-4">
+          <p>Sort by: {az ? "Title A - Z" : "Title Z - A"}  </p>
+           
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 21 21"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m14.5 8.5l-4 4l-4-4" /></svg>
+
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem onClick={setAZSort}>

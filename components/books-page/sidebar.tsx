@@ -22,11 +22,11 @@ interface SidebarProps {
 
 export const Sidebar = ({ genres, selectedGenreIds, onGenreChange }: SidebarProps) => {
     return (
-        <div className="w-1/4 bg-[#fdfdfd] shadow-lg border-r px-10">
+        <div className="w-1/4 bg-white shadow-r-lg border-r h-screen ">
             <Accordion
                 type="single"
                 collapsible
-                className="w-full text-right"
+                className="w-full text-right px-10 "
                 defaultValue="item-1"
             >
                 <AccordionItem value="item-1">

@@ -14,7 +14,7 @@ export const Navbar = () => {
 
 
     return (
-        <div className="sticky top-0 z-50 bg-[#fdfdfd] shadow flex justify-between">
+        <div className="sticky top-0 z-50 bg-white shadow flex justify-between">
             <nav className="py-1 w-full">
                 <div className="flex flex-col items-center">
                     <div className="container flex items-center flex-row justify-between py-4 px-10 w-full">
@@ -38,7 +38,7 @@ export const Navbar = () => {
                                     viewBox="0 0 20 20"
                                 >
                                     <path
-                                        fill="#fdfdfd"
+                                        fill="#fff"
                                         d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33l-1.42 1.42l-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
                                     />
                                 </svg>
@@ -81,11 +81,11 @@ export const Navbar = () => {
                         <Link href="/books" className={`px-10 duration-300 w-1/5 hover:bg-gray-200 py-3 items-center flex flex-row gap-x-2 ${pathname === "/books" ? "text-[#e97520] font-bold text-[#132934]" : "hover:bg-gray-200"}`}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 19.137A2.742 2.742 0 0 1 10 20H3.75A1.75 1.75 0 0 1 2 18.25V5.75C2 4.784 2.784 4 3.75 4H10c.788 0 1.499.331 2 .863A2.742 2.742 0 0 1 14 4h6.25c.966 0 1.75.784 1.75 1.75v12.5A1.75 1.75 0 0 1 20.25 20H14a2.742 2.742 0 0 1-2-.863ZM3.5 5.75v12.5c0 .138.112.25.25.25H10c.69 0 1.25-.56 1.25-1.25V6.75c0-.69-.56-1.25-1.25-1.25H3.75a.25.25 0 0 0-.25.25Zm9.25 11.5c0 .69.56 1.25 1.25 1.25h6.25a.25.25 0 0 0 .25-.25V5.75a.25.25 0 0 0-.25-.25H14c-.69 0-1.25.56-1.25 1.25v10.5Z" /></svg>                            Books
                         </Link>
-                        <Link href="/contact" className={`px-10 duration-300 w-1/5 hover:bg-gray-200 py-3 items-center  flex flex-row gap-x-2 ${pathname === "/contact" ? "text-[#e97520] font-bold text-[#132934]" : "hover:bg-gray-200"}`}>
+                        <Link href="/ebooks" className={`px-10 duration-300 w-1/5 hover:bg-gray-200 py-3 items-center  flex flex-row gap-x-2 ${pathname === "/ebooks" ? "text-[#e97520] font-bold text-[#132934]" : "hover:bg-gray-200"}`}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor"><path d="M3.5 5.75a.25.25 0 0 1 .25-.25H10c.69 0 1.25.56 1.25 1.25v8.959a6.49 6.49 0 0 1 1.5-2.646V6.75c0-.69.56-1.25 1.25-1.25h6.25a.25.25 0 0 1 .25.25v5.982A6.518 6.518 0 0 1 22 12.81V5.75A1.75 1.75 0 0 0 20.25 4H14c-.788 0-1.499.331-2 .863A2.742 2.742 0 0 0 10 4H3.75A1.75 1.75 0 0 0 2 5.75v12.5c0 .966.784 1.75 1.75 1.75H10c.495 0 .96-.13 1.36-.36a6.473 6.473 0 0 1-.343-1.663A1.248 1.248 0 0 1 10 18.5H3.75a.25.25 0 0 1-.25-.25V5.75Z" /><path d="M16.007 17c.04-1.415.248-2.669.553-3.585c.171-.513.364-.893.554-1.134c.195-.247.329-.281.386-.281c.057 0 .192.034.386.281c.19.241.383.62.554 1.134c.305.916.513 2.17.553 3.585h-2.986Zm-.396-3.9c.108-.323.23-.622.368-.887A5.504 5.504 0 0 0 12.023 17h2.984c.04-1.5.26-2.866.604-3.9Zm3.778 0a6.133 6.133 0 0 0-.368-.887A5.504 5.504 0 0 1 22.978 17h-2.985c-.04-1.5-.26-2.866-.604-3.9Zm.604 4.9h2.985a5.504 5.504 0 0 1-3.957 4.787c.138-.265.26-.564.368-.886c.345-1.035.564-2.4.604-3.901Zm-2.107 4.719c-.194.247-.329.281-.386.281c-.057 0-.191-.034-.386-.281c-.19-.241-.383-.62-.554-1.135c-.305-.915-.513-2.17-.553-3.584h2.986c-.04 1.415-.248 2.669-.553 3.584c-.171.514-.364.894-.554 1.135ZM12.023 18a5.504 5.504 0 0 0 3.956 4.787a6.133 6.133 0 0 1-.367-.886c-.346-1.035-.565-2.4-.605-3.901h-2.984Z" /></g></svg>
                             E-Books
                         </Link>
-                        <Link href="/contact" className={`px-10 duration-300 w-1/5 hover:bg-gray-200 py-3 items-center flex flex-row gap-x-2 ${pathname === "/contact" ? "text-[#e97520] font-bold text-[#132934]" : "hover:bg-gray-200"}`}>
+                        <Link href="/audiobooks" className={`px-10 duration-300 w-1/5 hover:bg-gray-200 py-3 items-center flex flex-row gap-x-2 ${pathname === "/audiobooks" ? "text-[#e97520] font-bold text-[#132934]" : "hover:bg-gray-200"}`}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" fillRule="evenodd" d="M12 4a8 8 0 0 0-8 8v2h2a2 2 0 0 1 2 2v3a3 3 0 1 1-6 0v-7C2 6.477 6.477 2 12 2s10 4.477 10 10v7a3 3 0 1 1-6 0v-3a2 2 0 0 1 2-2h2v-2a8 8 0 0 0-8-8Z" clipRule="evenodd" /></svg>                            Audiobooks
                         </Link>
 
