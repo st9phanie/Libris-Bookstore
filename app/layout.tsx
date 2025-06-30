@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Toaster } from "@/components/ui/sonner"
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,11 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning
-        className="flex min-h-screen flex-col bg-white open-sans " >
+        className="flex min-h-screen flex-col bg-[#F6F6F6] open-sans tracking-[0.3px]" >
         <Navbar />
-        <main className="flex-grow container mx-auto">
+        <main className="flex-grow container mx-auto bg-[#F6F6F6] ">
           {children}
         </main>
+        <Toaster />
         <Footer />
 
       </body>

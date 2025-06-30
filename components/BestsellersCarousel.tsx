@@ -13,31 +13,31 @@ import { BookAuthorGenre } from "@/types/book"; // <-- Add this import
 
 export const BestsellersCarousel = ({ bookAuthorPairs }: { bookAuthorPairs: BookAuthorGenre[] }) => {
   return (
-    <div className="w-full flex flex-col items-center px-4">
-      <h2 className="text-4xl viaoda text-center py-10 text-[#132934]">
+    <div className="w-full flex flex-col items-center px-10 my-10 ">
+      <h2 className="text-3xl max-w-6xl viaoda text-center py-10 text-[#132934] bg-white w-full">
         Bestsellers
       </h2>
 
-      <Carousel className="w-full max-w-6xl" opts={{ loop: true }}>
+      <Carousel className="w-full max-w-6xl bg-white " opts={{ loop: true }}>
         <CarouselContent className="min-h-[320px]">
           {bookAuthorPairs.map((pair, key) => (
             <CarouselItem
               key={key}
-              className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 px-4 py-4"
+              className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 px-4 py-4 "
             >
-              <div className="flex flex-col rounded-lg p-4 hover:bg-gray-100 transition">
+              <div className=" w-[170px] h-[300px] flex flex-col  p-4 hover:bg-gray-100 transition ">
                 <Image
                   width={150}
-                  height={250}
+                  height={200}
                   src={pair.cover_pic}
                   alt={pair.title}
-                  className="h-[250px] w-auto object-cover shadow"
+                  className="h-[200px] w-auto object-cover shadow"
                 />
-                <p className="font-semibold text-sm mt-3 text-[#132934]">
+                <p className="truncate font-semibold text-sm mt-3 text-[#132934] hover:overflow-visible hover:whitespace-normal hover:break-words">
                   {pair.title}
                 </p>
                 {pair.bookAuthor.map((author, key) => (
-                  <p key={key} className="text-xs text-gray-600 ">
+                  <p key={key} className="truncate text-xs text-gray-600 hover:overflow-visible hover:whitespace-normal hover:break-words">
                     {author.authors.firstname} {author.authors.middlename} {author.authors.lastname}
                   </p>
                 ))

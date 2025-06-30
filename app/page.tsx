@@ -7,7 +7,6 @@ export default async function Home() {
   
   return (
     <div className="">
-      <BannerCarousel />
       <BestsellersCarousel bookAuthorPairs={bookAuthorPairs}/>
     </div>
   )

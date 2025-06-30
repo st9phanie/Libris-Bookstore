@@ -11,7 +11,7 @@ interface Genre {
   genre: string;
 }
 
-export const BooksClient = ({ initialBooks, genres, }: { initialBooks: BookAuthorGenre[], genres: Genre[] }) => {
+export const BooksClient = ({ initialBooks, genres, uid}: { initialBooks: BookAuthorGenre[], genres: Genre[] ,uid:string}) => {
   const [books, setBooks] = useState(initialBooks)
   const [selectedGenreIds, setSelectedGenreIds] = useState<number[]>([])
   const [sortAsc, setSortAsc] = useState(true);
@@ -53,7 +53,7 @@ export const BooksClient = ({ initialBooks, genres, }: { initialBooks: BookAutho
                   <SortAZ onToggle={() => setSortAsc(prev => !prev)} />
                 </div>
         </div>
-        <BooksDisplay books={books} />
+        <BooksDisplay books={books} uid={uid}/>
       </div>
     </div >
   )
