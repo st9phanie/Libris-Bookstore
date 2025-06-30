@@ -14,7 +14,7 @@ export const EbooksDisplay = ({ books }: { books: ebookAuthorGenre[] }) => {
             height={200}
             src={pair.cover_pic}
             alt={pair.title}
-            className="h-[200px] w-full object-cover rounded"
+            className="h-[200px] w-full object-cover"
           />
           <p className="font-bold text-sm truncate w-full mt-2">{pair.title}</p>
           {pair.ebookAuthor.map((author, key) => (

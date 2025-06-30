@@ -41,7 +41,7 @@ export const BooksDisplay = ({ books }: { books: BookAuthorGenre[] }) => {
               height={200}
               src={pair.cover_pic}
               alt={pair.title}
-              className="h-[200px] w-full object-cover rounded"
+              className="h-[200px] w-full object-cover"
             />
             <p className="font-bold text-sm truncate w-full mt-2">{pair.title}</p>
             {pair.bookAuthor.map((author, idx) => (

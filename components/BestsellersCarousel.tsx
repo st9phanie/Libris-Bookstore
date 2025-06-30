@@ -31,7 +31,7 @@ export const BestsellersCarousel = ({ bookAuthorPairs }: { bookAuthorPairs: Book
                   height={250}
                   src={pair.cover_pic}
                   alt={pair.title}
-                  className="h-[250px] w-auto object-cover rounded shadow"
+                  className="h-[250px] w-auto object-cover shadow"
                 />
                 <p className="font-semibold text-sm mt-3 text-[#132934]">
                   {pair.title}

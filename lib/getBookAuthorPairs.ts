@@ -27,7 +27,6 @@ export const getBookAuthorPairs = cache(async (): Promise<BookAuthorGenre[]> => 
 
   if (error) throw new Error(error.message);
 
-  // Fix: Map bookGenres.genres from array to single object
   return (data ?? []).map((book: any) => ({
     ...book,
     bookAuthor: (book.bookAuthor ?? []).map((ba: any) => ({

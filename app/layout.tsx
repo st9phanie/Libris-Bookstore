@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning
-        className="flex min-h-screen flex-col bg-white" >
+        className="flex min-h-screen flex-col bg-white open-sans " >
         <Navbar />
         <main className="flex-grow container mx-auto">
           {children}
