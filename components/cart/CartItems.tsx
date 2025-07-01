@@ -8,8 +8,9 @@ import { CartItem } from "@/types/cart";
 import Quantity from "../Quantity";
 import { Checkout } from "./Checkout";
 import { addToCart } from "@/lib/addToCart";
+import { BookAuthorGenre } from "@/types/book";
 
-export default function CartPage({ initialCart, uid }: { initialCart: CartItem[]; uid: string }) {
+export default function CartPage({ initialCart, uid, books }: { initialCart: CartItem[]; uid: string; books: BookAuthorGenre[] }) {
   const [cart, setCart] = useState<CartItem[]>(initialCart);
   const [total, setTotal] = useState(0);
 
@@ -30,11 +31,25 @@ export default function CartPage({ initialCart, uid }: { initialCart: CartItem[]
     }
   };
 
+  function findBook(bookId: number) {
+    const book = books.find(item => item.id === bookId);
+    const authors = book?.bookAuthor;
+
+    if (!authors || authors.length === 0) return "Unknown Author";
+
+    return authors
+      .map(author => {
+        const a = author.authors;
+        return [a.firstname, a.middlename, a.lastname].filter(Boolean).join(" ");
+      })
+      .join(", ");
+  }
+
   const handleQuantityChange = (bookId: number, newQuantity: number) => {
     const oldQuantity = cart.find(item => item.bookId === bookId)?.quantity ?? 0;
 
     setCart((prev) =>
-      prev.map((item) => 
+      prev.map((item) =>
         item.bookId === bookId ? { ...item, quantity: newQuantity } : item
       )
     );
@@ -48,7 +63,7 @@ export default function CartPage({ initialCart, uid }: { initialCart: CartItem[]
     <div className="flex flex-col lg:flex-row  w-full">
       {/* Cart Items */}
       <div className="flex flex-col w-full px-4 md:px-10  md:pt-10  lg:w-3/5">
-              <p className="text-3xl md:text-4xl viaoda font-bold mb-4 ">My Cart</p>
+        <p className="text-3xl md:text-4xl viaoda font-bold mb-4 ">My Cart</p>
 
         {cart.map((pair) => (
           <div
@@ -60,12 +75,14 @@ export default function CartPage({ initialCart, uid }: { initialCart: CartItem[]
               height={200}
               src={pair.books?.cover_pic || "/placeholder.jpg"}
               alt={pair.books?.title || "Book"}
-              className="h-[190px] w-[130px] object-cover"
+              className="min-h-[190px] min-w-[130px] object-cover"
             />
             <div className="flex flex-col text-left text-lg justify-between w-full h-full py-4 sm:py-10">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full gap-y-2">
-                <p className="font-semibold truncate">{pair.books?.title}</p>
-
+                <div className="flex flex-col ">
+                  <p className="font-semibold truncate">{pair.books?.title}</p>
+                  <p className="text-gray-500 text-sm">{findBook(pair.bookId!)}</p>
+                </div>
                 <div
                   onClick={() => handleDelete(pair.bookId!)}
                   className="text-gray-500 text-xs flex items-center gap-x-2 cursor-pointer"
