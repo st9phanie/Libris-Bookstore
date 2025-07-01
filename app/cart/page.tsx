@@ -14,8 +14,7 @@ export default async function Cart() {
   return (
     <div className="flex flex-col md:flex-row open-sans text-[#132934] w-full min-h-screen">
       {/* Cart Section */}
-      <div className="flex flex-col px-4 md:px-10 w-full md:pt-10">
-        <p className="text-3xl md:text-4xl viaoda font-bold mb-4 ">My Cart</p>
+      <div className="flex flex-col  w-full">
         {cart && cart.length > 0 ? (
           <CartItems initialCart={cart} uid={uid} />
         ) : (

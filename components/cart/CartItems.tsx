@@ -45,9 +45,11 @@ export default function CartPage({ initialCart, uid }: { initialCart: CartItem[]
   if (cart.length === 0) return <div className="p-6 text-lg">No items in cart</div>;
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6  w-full">
+    <div className="flex flex-col lg:flex-row  w-full">
       {/* Cart Items */}
-      <div className="flex flex-col w-full lg:w-3/5">
+      <div className="flex flex-col w-full px-4 md:px-10  md:pt-10  lg:w-3/5">
+              <p className="text-3xl md:text-4xl viaoda font-bold mb-4 ">My Cart</p>
+
         {cart.map((pair) => (
           <div
             key={pair.bookId}

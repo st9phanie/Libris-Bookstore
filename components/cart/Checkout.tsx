@@ -10,8 +10,8 @@ export const Checkout = ({ cart }: { cart: CartItem[] }) => {
     }, [cart]);
 
     return (
-        <div className="bg-[#EBEBE5] p-6 rounded-md w-full lg:w-2/5">
-            <h2 className="text-2xl font-bold mb-4">Checkout</h2>
+        <div className="bg-[#EBEBE5] p-6 w-full lg:w-2/5">
+        <p className="text-3xl md:text-4xl viaoda font-bold mb-4 pt-4">Checkout</p>
             <div className="border-b border-gray-300 pt-2 pb-4">
                 {cart.map((pair) => (
                     <div key={pair.bookId} className="flex justify-between items-center text-sm mb-2">
