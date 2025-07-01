@@ -29,9 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning
-        className="flex min-h-screen flex-col bg-[#F6F6F6] open-sans tracking-[0.3px]" >
+        className="flex w-full min-h-screen flex-col bg-[#F6F6F6] open-sans tracking-[0.3px]" >
         <Navbar />
-        <main className="flex-grow container mx-auto bg-[#F6F6F6] ">
+        <main className="flex-grow w-full mx-auto bg-[#F6F6F6] ">
           {children}
         </main>
         <Toaster />

@@ -31,15 +31,5 @@ export async function addToCart(uid: string, bookId: number, quantity: number) {
       { onConflict: 'uid,bookId' }
     );
 
-  if (upsertError) {
-    console.error('Error adding to cart:');
-    console.error('Code:', upsertError.code);
-    console.error('Message:', upsertError.message);
-    console.error('Details:', upsertError.details);
-    console.error('Hint:', upsertError.hint);
-    console.error('Full Error Object:', upsertError);
-    return { error: upsertError };
-  }
-
   return { data };
 }

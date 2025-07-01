@@ -200,3 +200,9 @@
   font-style: normal;
   letter-spacing: 0.3px;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: inner-spin-button !important;
+  display: block !important;
+}

@@ -7,6 +7,7 @@ import { toast } from "sonner"
 import { useRouter } from 'next/navigation'
 import Image from "next/image";
 import { addToCart } from "@/lib/addToCart"; // Make sure this import points to your updated file
+import Quantity from "../Quantity";
 
 import {
   Pagination,
@@ -19,22 +20,6 @@ import {
 } from "@/components/ui/pagination";
 
 const ITEMS_PER_PAGE = 18;
-
-// Assuming BookAuthorGenre looks something like:
-// export type BookAuthorGenre = {
-//   id: number; // This will be passed as itemId, assuming it's the bookId
-//   title: string;
-//   cover_pic: string;
-//   price: number;
-//   // ... other properties
-//   bookAuthor: Array<{
-//     authors: {
-//       firstname: string;
-//       middlename: string | null;
-//       lastname: string;
-//     }
-//   }>;
-// };
 
 export const BooksDisplay = ({ books, uid }: { books: BookAuthorGenre[], uid: string }) => {
   const router = useRouter()
