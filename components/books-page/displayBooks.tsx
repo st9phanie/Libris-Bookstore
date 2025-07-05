@@ -22,6 +22,7 @@ const ITEMS_PER_PAGE = 18;
 
 export const BooksDisplay = ({ books, uid }: { books: BookAuthorGenre[], uid: string }) => {
   const router = useRouter()
+
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(books.length / ITEMS_PER_PAGE);
 
@@ -36,8 +37,8 @@ export const BooksDisplay = ({ books, uid }: { books: BookAuthorGenre[], uid: st
     }
   };
 
-  const handleBookClick = (title: string) => {
-    router.push(`/books/${encodeURIComponent(title)}`)
+   const handleBookClick = (bookId:number) => {
+    router.push(`/books/${encodeURIComponent(bookId)}`)
   }
 
   // New handler for adding to cart
@@ -48,7 +49,6 @@ export const BooksDisplay = ({ books, uid }: { books: BookAuthorGenre[], uid: st
       return;
     }
 
-    // Call the updated addToCart function
     // Pass '1' as quantityToAdd to increment by one, and 'book' as itemType
     const result = await addToCart(uid, bookId, 1);
 
@@ -85,7 +85,7 @@ export const BooksDisplay = ({ books, uid }: { books: BookAuthorGenre[], uid: st
               height={200}
               src={book.cover_pic}
               alt={book.title}
-              onClick={() => handleBookClick(book.title)}
+              onClick={() => handleBookClick(book.id)}
               className="h-[200px] w-full object-cover"
             />
             <p className="font-bold text-sm truncate w-full mt-2 hover:overflow-visible hover:whitespace-normal hover:break-words">{book.title}</p>
@@ -97,13 +97,13 @@ export const BooksDisplay = ({ books, uid }: { books: BookAuthorGenre[], uid: st
               </div>
             ))}
             <div className="flex flex-row mt-2 items-center justify-between w-full">
-              <p className="text-[#E97520] text-base font-semibold">
+              <p className="text-[var(--primary-orange)] text-base font-semibold">
                 <span className="text-sm">$</span> {book.price}
               </p>
 
               {/* Cart Icon Button */}
               <button
-                className="text-[#132934] hover:text-[#E97520] transition-colors cursor-pointer"
+                className="text-[#132934] hover:text-[var(--primary-orange)] transition-colors cursor-pointer"
                 onClick={() => handleAddToCartClick(book.id)} 
               >
                 <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="currentColor">

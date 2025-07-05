@@ -31,7 +31,7 @@ export const Navbar = () => {
                                 placeholder="Search"
                                 className="px-4 py-2 w-full bg-[#EBEBE5] border-2 text-black"
                             />
-                            <button className="bg-[#e97520] px-4 py-2">
+                            <button className="bg-[var(--primary-orange)] px-4 py-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20">
                                     <path
                                         fill="#fff"
@@ -82,7 +82,7 @@ export const Navbar = () => {
                                 key={href}
                                 href={href}
                                 className={`w-full  flex items-center gap-2 justify-center px-4 py-3 ${pathname === href
-                                    ? "text-[#e97520] font-bold"
+                                    ? "text-[var(--primary-orange)] font-bold"
                                     : "hover:bg-gray-200 text-[#132934]"
                                     }`}
                             >

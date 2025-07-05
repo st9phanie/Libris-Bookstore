@@ -26,10 +26,10 @@ export const EbooksDisplay = ({ books }: { books: ebookAuthorGenre[] }) => {
             ))}
           
           <div className="flex flex-row mt-2 items-center justify-between w-full">
-            <p className="text-[#E97520] text-base font-semibold">
+            <p className="text-[var(--primary-orange)] text-base font-semibold">
               <span className="text-sm">$</span> {pair.price}
             </p>
-            <button className="text-[#132934] hover:text-[#E97520] transition-colors">
+            <button className="text-[#132934] hover:text-[var(--primary-orange)] transition-colors">
               <svg className="cursor-pointer"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

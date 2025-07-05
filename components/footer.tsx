@@ -18,13 +18,13 @@ export const Footer = () => {
 
 
                     <footer className="bg-[#142934] shadow shadow-sm border-white text-white px-10 ">
-                        <AccordionTrigger className="justify-end text-[#E97520] size-6 mb-4  "></AccordionTrigger>
+                        <AccordionTrigger className="justify-end text-[var(--primary-orange)] size-6 mb-4  "></AccordionTrigger>
                         <AccordionContent className="">
                             <div className="flex flex-row items-center justify-between border-b py-4">
                                 <p className=" ">Sign up to our newsletter and get the best deals!</p>
                                 <div className="flex flex-row gap-x-2 w-1/3">
                                     <input className="bg-[#EBEBE5] max-h-min w-full text-gray-800 px-4 py-2" type="email" placeholder="Enter your email" />
-                                    <button className="bg-[#E97520] min-w-max text-white px-4 py-2">Sign up</button>
+                                    <button className="bg-[var(--primary-orange)] min-w-max text-white px-4 py-2">Sign up</button>
                                 </div>
 
                             </div>

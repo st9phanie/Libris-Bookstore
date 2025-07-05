@@ -98,7 +98,7 @@ export default function CartPage({ initialCart, uid, books }: { initialCart: Car
               </div>
 
               <div className="flex justify-between items-center mt-2">
-                <p className="text-[#E97520] font-semibold">
+                <p className="text-[var(--primary-orange)] font-semibold">
                   <span>$</span> {pair.books?.price}
                 </p>
                 <div className="flex flex-row items-center">

@@ -8,10 +8,14 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 import { BookAuthorGenre } from "@/types/book"; // <-- Add this import
 
 export const BestsellersCarousel = ({ bookAuthorPairs }: { bookAuthorPairs: BookAuthorGenre[] }) => {
+  const router = useRouter()
+  const handleBookClick = (bookId:number) => {
+    router.push(`/books/${encodeURIComponent(bookId)}`)
+  }
   return (
     <div className="w-full flex flex-col items-center px-10 my-10 ">
       <h2 className="text-3xl max-w-6xl viaoda text-center py-10 text-[#132934] bg-white w-full">
@@ -25,7 +29,9 @@ export const BestsellersCarousel = ({ bookAuthorPairs }: { bookAuthorPairs: Book
               key={key}
               className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 px-4 py-4 "
             >
-              <div className=" w-[170px] h-[300px] flex flex-col  p-4 hover:bg-gray-100 transition ">
+              <div 
+              onClick={()=>handleBookClick(pair.id)}
+              className=" w-[170px] h-[300px] flex flex-col  p-4 hover:bg-gray-100 transition cursor-pointer">
                 <Image
                   width={150}
                   height={200}

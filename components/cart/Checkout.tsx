@@ -27,7 +27,7 @@ export const Checkout = ({ cart }: { cart: CartItem[]}) => {
                 <p>Total</p>
                 <p>${total.toFixed(2)}</p>
             </div>
-            <button className="text-white w-full bg-[#E97520] px-4 py-2 cursor-pointer hover:bg-[#CB6E24] transition">
+            <button className="text-white w-full bg-[var(--primary-orange)] px-4 py-2 cursor-pointer hover:bg-[#CB6E24] transition">
                 Checkout
             </button>
         </div>
