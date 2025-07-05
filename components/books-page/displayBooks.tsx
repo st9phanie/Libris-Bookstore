@@ -73,7 +73,7 @@ export const BooksDisplay = ({ books, uid }: { books: BookAuthorGenre[], uid: st
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full h-full ">
       <div className="flex flex-wrap gap-x-10 pt-8">
         {paginatedBooks.map((book, key) => ( // Changed 'pair' to 'book' for clarity
           <div

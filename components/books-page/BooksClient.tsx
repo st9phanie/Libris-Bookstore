@@ -11,7 +11,7 @@ interface Genre {
   genre: string;
 }
 
-export const BooksClient = ({ initialBooks, genres, uid}: { initialBooks: BookAuthorGenre[], genres: Genre[] ,uid:string}) => {
+export const BooksClient = ({ initialBooks, genres, uid }: { initialBooks: BookAuthorGenre[], genres: Genre[], uid: string }) => {
   const [books, setBooks] = useState(initialBooks)
   const [selectedGenreIds, setSelectedGenreIds] = useState<number[]>([])
   const [sortAsc, setSortAsc] = useState(true);
@@ -19,9 +19,10 @@ export const BooksClient = ({ initialBooks, genres, uid}: { initialBooks: BookAu
   useEffect(() => {
     let filteredBooks = selectedGenreIds.length === 0
       ? [...initialBooks]
-      : initialBooks.filter(book =>
-        book.bookGenres.some(bg => selectedGenreIds.includes(bg.genres.id))
-      );
+      : initialBooks.filter(book => {
+        const bookGenreIds = book.bookGenres.map(bg => bg.genres.id);
+        return selectedGenreIds.every(id => bookGenreIds.includes(id));
+      });
 
     filteredBooks.sort((a, b) => {
       const titleA = a.title.toLowerCase();
@@ -33,6 +34,7 @@ export const BooksClient = ({ initialBooks, genres, uid}: { initialBooks: BookAu
   }, [selectedGenreIds, initialBooks, sortAsc]);
 
 
+
   const handleGenreChange = (genreId: number, checked: boolean) => {
     setSelectedGenreIds(prev =>
       checked ? [...prev, genreId] : prev.filter(id => id !== genreId)
@@ -40,7 +42,7 @@ export const BooksClient = ({ initialBooks, genres, uid}: { initialBooks: BookAu
   }
 
   return (
-    <div className="flex flex-row w-full">
+    <div className="flex flex-row w-full h-full">
       <Sidebar
         genres={genres}
         selectedGenreIds={selectedGenreIds}
@@ -49,11 +51,11 @@ export const BooksClient = ({ initialBooks, genres, uid}: { initialBooks: BookAu
       <div className="flex flex-col px-10 py-10 w-full ">
         <div className="flex flex-row items-center gap-x-3">
 
-                <div className="flex flex-row gap-2 items-center">
-                  <SortAZ onToggle={() => setSortAsc(prev => !prev)} />
-                </div>
+          <div className="flex flex-row gap-2 items-center">
+            <SortAZ sortAsc={sortAsc} onToggle={setSortAsc} />
+          </div>
         </div>
-        <BooksDisplay books={books} uid={uid}/>
+        <BooksDisplay books={books} uid={uid} />
       </div>
     </div >
   )

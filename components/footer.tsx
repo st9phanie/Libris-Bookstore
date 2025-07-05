@@ -12,7 +12,7 @@ export const Footer = () => {
                 type="single"
                 collapsible
                 className="w-full  "
-                defaultValue="item-1"
+                defaultValue="item-0"
             >
                 <AccordionItem value="item-1">
 

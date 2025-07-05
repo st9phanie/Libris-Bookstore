@@ -13,6 +13,9 @@ export default async function BooksPage() {
     }
 
     return (
-        <BooksClient initialBooks={bookAuthorPairs} genres={genres} uid={uid}/>
+        <div className="h-full w-full ">
+                    <BooksClient initialBooks={bookAuthorPairs} genres={genres} uid={uid}/>
+
+        </div>
     )
 }
