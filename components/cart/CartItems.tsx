@@ -115,7 +115,7 @@ export default function CartPage({ initialCart, uid, books }: { initialCart: Car
       </div>
 
       {/* Checkout */}
-      <Checkout cart={cart} />
+      <Checkout cart={cart} uid={uid} />
 
     </div>
   );

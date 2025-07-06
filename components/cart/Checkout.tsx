@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { CartItem } from "@/types/cart";
-
-export const Checkout = ({ cart }: { cart: CartItem[]}) => {
+import { checkoutOrder } from "@/lib/checkout";
+export const Checkout = ({ cart,uid }: { cart: CartItem[],uid:string}) => {
     const total = useMemo(() => {
         return cart.reduce(
             (sum, item) => sum + (item.books?.price ?? 0) * (item.quantity ?? 0),
@@ -27,7 +27,7 @@ export const Checkout = ({ cart }: { cart: CartItem[]}) => {
                 <p>Total</p>
                 <p>${total.toFixed(2)}</p>
             </div>
-            <button className="text-white w-full bg-[var(--primary-orange)] px-4 py-2 cursor-pointer hover:bg-[#CB6E24] transition">
+            <button onClick={()=>checkoutOrder(cart,Number(total.toFixed(2)))} className="text-white w-full bg-[var(--primary-orange)] px-4 py-2 cursor-pointer hover:bg-[#CB6E24] transition">
                 Checkout
             </button>
         </div>

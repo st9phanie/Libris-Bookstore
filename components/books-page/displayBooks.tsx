@@ -20,7 +20,7 @@ import {
 
 const ITEMS_PER_PAGE = 18;
 
-export const BooksDisplay = ({ books, uid }: { books: BookAuthorGenre[], uid: string }) => {
+export const BooksDisplay = ({ books, uid }: { books: BookAuthorGenre[], uid: string|null }) => {
   const router = useRouter()
 
   const [currentPage, setCurrentPage] = useState(1);

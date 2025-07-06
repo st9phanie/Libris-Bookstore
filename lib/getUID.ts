@@ -7,7 +7,6 @@ export async function getUserId(): Promise<string | null> {
     const { data, error } = await supabase.auth.getUser();
 
     if (error || !data?.user?.id) {
-        console.error("User not authenticated:", error);
         return null;
     }
 

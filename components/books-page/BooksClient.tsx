@@ -11,7 +11,7 @@ interface Genre {
   genre: string;
 }
 
-export const BooksClient = ({ initialBooks, genres, uid }: { initialBooks: BookAuthorGenre[], genres: Genre[], uid: string }) => {
+export const BooksClient = ({ initialBooks, genres, uid }: { initialBooks: BookAuthorGenre[], genres: Genre[], uid: string|null }) => {
   const [books, setBooks] = useState(initialBooks)
   const [selectedGenreIds, setSelectedGenreIds] = useState<number[]>([])
   const [sortAsc, setSortAsc] = useState(true);

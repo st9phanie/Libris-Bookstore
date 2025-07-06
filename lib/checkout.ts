@@ -1,35 +1,53 @@
-// lib/addToCart.ts
-import { supabase } from '@/lib/supabaseClient';
+"use server"
+import { createClient } from "@/utils/supabase/server";
 
-export async function checkout(uid: string, bookId: number, quantity: number) {
-  console.log("uid", uid);
+import { supabase } from "./supabaseClient";
+import { CartItem } from "@/types/cart";
+import { getUserId } from "./getUID";
 
-  const { data: existingCartItem, error: selectError } = await supabase
-    .from('cart')
-    .select('quantity') 
-    .eq('uid', uid)
-    .eq('bookId', bookId)
-    .single(); 
+export async function checkoutOrder(items: CartItem[], total: number) {
+    const supabase = await createClient();
 
-  if (selectError && selectError.code !== 'PGRST116') { 
-    console.error('Error checking existing cart item:', selectError);
-    return { error: selectError };
-  }
+    const { data, error } = await supabase.auth.getUser();
 
-  let finalQuantity: number;
+    if (error || !data?.user?.id) {
+        return null;
+    }
 
-  if (existingCartItem) {
-    finalQuantity = existingCartItem.quantity + quantity;
-  } else {
-    finalQuantity = quantity;
-  }
+    const uid= data.user.id;
 
-  const { data, error: upsertError } = await supabase
-    .from('cart')
-    .upsert(
-      { uid, bookId, quantity: finalQuantity }, 
-      { onConflict: 'uid,bookId' }
-    );
+    const { data: orderData, error: orderError } = await supabase
+        .from('orders')
+        .insert({ total: total, uid: uid })
+        .select() // Needed to get inserted order back
+        .single(); // Ensure only one row is returned
 
-  return { data };
+    if (orderError || !orderData) {
+        console.error('Error inserting order:', orderError);
+        return null;
+    }
+
+    const orderId = orderData.id;
+    console.log(orderData)
+    return await checkoutItems(items, orderId);
+}
+
+export async function checkoutItems(items: CartItem[], orderId: number) {
+    const orderItems = items.map(item => ({
+        orderId,
+        bookId: item.bookId,
+        quantity: item.quantity,
+        price: item.books!.price,
+    }));
+
+    const { data, error } = await supabase
+        .from('orderItem')
+        .insert(orderItems);
+
+    if (error) {
+        console.error('Error inserting order items:', error);
+        return null;
+    }
+
+    return data;
 }
