@@ -10,7 +10,7 @@ export const Checkout = ({ cart,uid }: { cart: CartItem[],uid:string}) => {
     }, [cart]);
 
     return (
-        <div className="bg-[#EBEBE5] p-6 w-full lg:w-2/5">
+        <div className="bg-[#EAEEEF] p-6 w-full lg:w-2/5">
             <p className="text-3xl md:text-4xl viaoda font-bold mb-4 pt-4">Checkout</p>
             <div className="border-b border-gray-300 pt-2 pb-4">
                 {cart.map((pair) => (
@@ -27,7 +27,7 @@ export const Checkout = ({ cart,uid }: { cart: CartItem[],uid:string}) => {
                 <p>Total</p>
                 <p>${total.toFixed(2)}</p>
             </div>
-            <button onClick={()=>checkoutOrder(cart,Number(total.toFixed(2)))} className="text-white w-full bg-[var(--primary-orange)] px-4 py-2 cursor-pointer hover:bg-[#CB6E24] transition">
+            <button onClick={()=>checkoutOrder(cart,Number(total.toFixed(2)))} className="text-white w-full bg-[#0F99BB] px-4 py-2 cursor-pointer hover:bg-[#CB6E24] transition">
                 Checkout
             </button>
         </div>

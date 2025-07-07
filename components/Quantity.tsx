@@ -26,7 +26,7 @@ export default function Quantity({
         value={value}
         onChange={(e) => onChange(parseInt(e.target.value) || 0)}
         min={min}
-        className="w-9 bg-[#EBEBE5] border border-gray-300 px-2 py-1 text-center text-sm rounded-none "
+        className="w-9 bg-[#EAEEEF] border border-gray-300 px-2 py-1 text-center text-sm rounded-none "
       />
       <Button variant="ghost" onClick={handleIncrement} className="h-4 w-4 cursor-pointer ">
         <PlusIcon className="h-4 w-4" />

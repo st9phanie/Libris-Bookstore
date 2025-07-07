@@ -3,6 +3,11 @@ export interface BookAuthorGenre {
   title: string;
   cover_pic: string;
   price:number;
+  overview:string;
+  publisher:string;
+  page_count:number;
+  language:string;
+  isbn:string;
   bookAuthor: {
     authors: {
       firstname?: string;

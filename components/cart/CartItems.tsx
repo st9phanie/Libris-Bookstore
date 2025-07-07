@@ -60,7 +60,7 @@ export default function CartPage({ initialCart, uid, books }: { initialCart: Car
   if (cart.length === 0) return <div className="p-6 text-lg">No items in cart</div>;
 
   return (
-    <div className="flex flex-col lg:flex-row  w-full">
+    <div className="flex flex-col lg:flex-row  w-full bg-white">
       {/* Cart Items */}
       <div className="flex flex-col w-full px-4 md:px-10  md:pt-10  lg:w-3/5">
         <p className="text-3xl md:text-4xl viaoda font-bold mb-4 ">My Cart</p>
@@ -98,7 +98,7 @@ export default function CartPage({ initialCart, uid, books }: { initialCart: Car
               </div>
 
               <div className="flex justify-between items-center mt-2">
-                <p className="text-[var(--primary-orange)] font-semibold">
+                <p className="text-[#0F99BB] font-semibold">
                   <span>$</span> {pair.books?.price}
                 </p>
                 <div className="flex flex-row items-center">

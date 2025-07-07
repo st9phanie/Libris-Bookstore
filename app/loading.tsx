@@ -39,7 +39,7 @@ function StyleSheet() {
                 height: 30px;
                 border-radius: 50%;
                 border: 4px solid #132934;
-                border-top-color: #E97520;
+                border-top-color: #EAEEEF;
                 will-change: transform;
             }
             `}

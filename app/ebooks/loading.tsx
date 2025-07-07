@@ -11,10 +11,10 @@ export default function Loading() {
             <div className="flex flex-wrap gap-x-10 px-12 pt-30">
                 {Array.from({ length: 18 }).map((_, i) => (
                     <div key={i} className="flex flex-col space-y-3 basis-1/6">
-                        <Skeleton className="h-[200px] w-[150px] rounded-none bg-[#EBEBE5]" />
+                        <Skeleton className="h-[200px] w-[150px] rounded-none bg-[#EAEEEF]" />
                         <div className="space-y-2">
-                            <Skeleton className="h-4 w-[150px] rounded-none bg-[#EBEBE5]" />
-                            <Skeleton className="h-4 w-[150px] rounded-none bg-[#EBEBE5]" />
+                            <Skeleton className="h-4 w-[150px] rounded-none bg-[#EAEEEF]" />
+                            <Skeleton className="h-4 w-[150px] rounded-none bg-[#EAEEEF]" />
                         </div>
                     </div>
                 ))}

@@ -97,13 +97,13 @@ export const BooksDisplay = ({ books, uid }: { books: BookAuthorGenre[], uid: st
               </div>
             ))}
             <div className="flex flex-row mt-2 items-center justify-between w-full">
-              <p className="text-[var(--primary-orange)] text-base font-semibold">
+              <p className="text-[#0F99BB] text-base font-semibold">
                 <span className="text-sm">$</span> {book.price}
               </p>
 
               {/* Cart Icon Button */}
               <button
-                className="text-[#132934] hover:text-[var(--primary-orange)] transition-colors cursor-pointer"
+                className="text-[#132934] hover:text-[#0F99BB] transition-colors cursor-pointer"
                 onClick={() => handleAddToCartClick(book.id)} 
               >
                 <svg className="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="currentColor">

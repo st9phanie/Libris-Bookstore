@@ -1,7 +1,10 @@
 import { BookAuthorGenre } from "@/types/book"
 import Image from "next/image"
+import { bookDetails } from "./bookDetails";
 
 export const DisplayBookInfo = async ({ book }: { book: BookAuthorGenre }) => {
+    const bookInfo = bookDetails(book);
+
     function getAuthorFullName() {
         const authors = book!.bookAuthor;
         return authors
@@ -14,19 +17,50 @@ export const DisplayBookInfo = async ({ book }: { book: BookAuthorGenre }) => {
     const fullname = getAuthorFullName()
 
     return (
-        <div className="px-10 py-8 ">
-            <div className="flex flex-row gap-x-10">
-                <div>
-                    <Image
-                        src={book!.cover_pic}
-                        width={280}
-                        height={300}
-                        alt="cover pic"
-                    />
+        <div className="px-10 py-12 h-full bg-white ">
+            <div className="flex flex-row h-full items-stretch gap-x-10">
+                <Image
+                    src={book!.cover_pic}
+                    width={300}
+                    height={350}
+                    alt="cover pic"
+                    className="w-[300px] h-[400px] object-cover rounded-lg shadow-md "
+                />
+                <div className="flex flex-col justify-between ">
+                    <div>
+                        <p className="text-2xl font-bold ">{book!.title}</p>
+                        <p className="text-gray-500 italic  ">By {fullname}</p>
+                        <hr className="my-4 border-gray-300  " />
+
+                    </div>
+
+                    <p className="text-sm  whitespace-pre-line "> {book!.overview}</p>
+
+                    <div className="flex flex-row items-center mt-4">
+                        <p className="mr-2 ">Genres: </p>
+                        {book.bookGenres.map((genre, key) => (
+                            <span className="bg-[#0F99BB] text-white text-xs font-medium px-2.5 py-1 cursor-pointer mr-2 rounded-full capitalize text-center" key={key}>{genre.genres.genre}</span>
+                        ))}
+
+                    </div>
+
+                    <div className="flex flex-col ">
+                        <hr className="my-4 border-gray-300" />
+                        <div className="flex flex-row justify-between items-center max-w-100 text-xs gap-x-10 ">
+                            {bookInfo.map(({ label, icon, value }) => (
+                                <div key={label} className="flex flex-col items-center justify-between gap-y-1 max-h-50 min-h-max ">
+                                    <p>{label}</p>
+                                    {icon}
+                                    <p className="font-semibold ">{value}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
                 </div>
-                <div>
-                    <p className="text-2xl ">{book!.title}</p>
-                    <p>By {fullname}</p>
+                <div className="min-h-max bg-white w-3/5 border shadow">
+                    <p>${book.price}</p>
+                    <button>Add to cart</button>
                 </div>
             </div>
         </div>

@@ -10,6 +10,11 @@ export const getBookById = cache(async (id: Number): Promise<BookAuthorGenre | n
       title,
       cover_pic,
       price,
+      overview,
+      publisher,
+      page_count,
+      language,
+      isbn,
       bookAuthor (
         authors (
           firstname,

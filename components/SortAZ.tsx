@@ -14,7 +14,7 @@ interface SortAZProps {
 
 export const SortAZ = ({ sortAsc, onToggle }: SortAZProps) => {
   return (
-    <div className="cursor-pointer border px-3 py-1 bg-[#EBEBE5]">
+    <div className="cursor-pointer border px-3 py-1 bg-[#EAEEEF]">
       <DropdownMenu>
         <DropdownMenuTrigger className="outline-none flex flex-row items-center justify-between gap-x-4">
           <p>Sort by: {sortAsc ? "Title A - Z" : "Title Z - A"}</p>
