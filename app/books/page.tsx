@@ -6,7 +6,7 @@ import { getUserId } from "@/lib/getUID"
 export default async function BooksPage() {
     const bookAuthorPairs = await getBookAuthorPairs()
     const genres = await getGenres()
-    let uid = await getUserId();
+    const uid = await getUserId();
 
     return (
         <div className="h-full w-full ">

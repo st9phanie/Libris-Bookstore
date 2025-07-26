@@ -3,7 +3,6 @@ import { createClient } from "@/utils/supabase/server";
 
 import { supabase } from "./supabaseClient";
 import { CartItem } from "@/types/cart";
-import { getUserId } from "./getUID";
 
 export async function checkoutOrder(items: CartItem[], total: number) {
     const supabase = await createClient();

@@ -17,7 +17,7 @@ export const BooksClient = ({ initialBooks, genres, uid }: { initialBooks: BookA
   const [sortAsc, setSortAsc] = useState(true);
 
   useEffect(() => {
-    let filteredBooks = selectedGenreIds.length === 0
+    const filteredBooks = selectedGenreIds.length === 0
       ? [...initialBooks]
       : initialBooks.filter(book => {
         const bookGenreIds = book.bookGenres.map(bg => bg.genres.id);

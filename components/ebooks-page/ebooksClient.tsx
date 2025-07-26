@@ -17,7 +17,7 @@ export const EbooksClient = ({ initialBooks, genres, }: { initialBooks: ebookAut
   const [sortAsc, setSortAsc] = useState(true);
 
   useEffect(() => {
-    let filteredBooks = selectedGenreIds.length === 0
+    const filteredBooks = selectedGenreIds.length === 0
       ? [...initialBooks]
       : initialBooks.filter(book =>
         book.ebookGenres.some(bg => selectedGenreIds.includes(bg.genres.id))

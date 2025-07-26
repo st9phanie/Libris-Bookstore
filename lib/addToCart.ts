@@ -24,7 +24,7 @@ export async function addToCart(uid: string, bookId: number, quantity: number) {
     finalQuantity = quantity;
   }
 
-  const { data, error: upsertError } = await supabase
+  const { data } = await supabase
     .from('cart')
     .upsert(
       { uid, bookId, quantity: finalQuantity }, 

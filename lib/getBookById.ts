@@ -2,7 +2,7 @@ import { cache } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import { BookAuthorGenre } from '@/types/book';
 
-export const getBookById = cache(async (id: Number): Promise<BookAuthorGenre | null> => {
+export const getBookById = cache(async (id: number): Promise<BookAuthorGenre | null> => {
   const { data, error } = await supabase
     .from('books')
     .select(`

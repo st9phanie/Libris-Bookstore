@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { CartItem } from "@/types/cart";
 import { checkoutOrder } from "@/lib/checkout";
-export const Checkout = ({ cart,uid }: { cart: CartItem[],uid:string}) => {
+export const Checkout = ({ cart }: { cart: CartItem[]}) => {
     const total = useMemo(() => {
         return cart.reduce(
             (sum, item) => sum + (item.books?.price ?? 0) * (item.quantity ?? 0),

@@ -24,7 +24,7 @@ export const DisplayBookInfo = async ({ book }: { book: BookAuthorGenre }) => {
                     width={300}
                     height={350}
                     alt="cover pic"
-                    className="w-[300px] h-[400px] object-cover rounded-lg shadow-md "
+                    className="w-[300px] h-[400px] object-cover rounded-sm shadow-md "
                 />
                 <div className="flex flex-col justify-between ">
                     <div>
@@ -46,7 +46,7 @@ export const DisplayBookInfo = async ({ book }: { book: BookAuthorGenre }) => {
 
                     <div className="flex flex-col ">
                         <hr className="my-4 border-gray-300" />
-                        <div className="flex flex-row justify-between items-center max-w-100 text-xs gap-x-10 ">
+                        <div className="flex flex-row justify-between items-center max-w-120 text-xs gap-x-10 ">
                             {bookInfo.map(({ label, icon, value }) => (
                                 <div key={label} className="flex flex-col items-center justify-between gap-y-1 max-h-50 min-h-max ">
                                     <p>{label}</p>

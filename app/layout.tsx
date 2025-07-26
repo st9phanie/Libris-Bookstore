@@ -1,20 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner"
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Libris",
@@ -30,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning
-        className="flex w-full min-h-screen flex-col bg-white font-[500] text-[#132934] open-sans tracking-[0.2px]" >
+        className="flex w-full min-h-screen flex-col bg-white font-[500] text-[#132934] font-[Verdana] " >
         <Navbar />
         <main className="flex-grow w-full mx-auto  ">
           {children}
