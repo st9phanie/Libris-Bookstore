@@ -1,13 +1,13 @@
 import { DisplayBookInfo } from '@/components/book-page/displayBookInfo';
 import { getBookById } from "@/lib/getBookById";
 
-export default async function BookInfo({
-  params,
-}: {
-  params: { bookId: string };
-}) {
-  const bookId = Number(params.bookId);
-  const book = await getBookById(bookId);
+type Params = Promise<{ bookId: string }>
+
+export default async function BookInfo(props: { params: Params }) {
+  const params = await props.params;
+
+  const bookid = Number(params.bookId);
+  const book = await getBookById(bookid);
 
   return (
     <div>
