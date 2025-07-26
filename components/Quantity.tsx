@@ -35,7 +35,7 @@ export default function Quantity({
   );
 }
 
-function MinusIcon(props) {
+function MinusIcon(props:any) {
   return (
     <svg
       {...props}
@@ -55,7 +55,7 @@ function MinusIcon(props) {
 }
 
 
-function PlusIcon(props) {
+function PlusIcon(props:any) {
   return (
     <svg
       {...props}
