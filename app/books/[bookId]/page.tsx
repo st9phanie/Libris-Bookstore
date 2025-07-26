@@ -3,17 +3,16 @@ import { getBookById } from "@/lib/getBookById";
 
 interface BookPageProps {
   params: {
-    bookId: Promise<string | null>;
+    bookId: string; // plain string, no Promise
   };
 }
 
-export default async function BookInfo(props: BookPageProps) {
-  const {bookId} = await props.params;
-  const bookid= Number(bookId)
+export default async function BookInfo({ params }: BookPageProps) {
+  const bookid = Number(params.bookId);
   const book = await getBookById(bookid);
 
   return (
-    <div className="">
+    <div>
       <DisplayBookInfo book={book!} />
     </div>
   );
