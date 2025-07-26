@@ -50,7 +50,7 @@ export const EbooksClient = ({ initialBooks, genres, }: { initialBooks: ebookAut
         <div className="flex flex-row items-center gap-x-3">
 
           <div className="flex flex-row gap-2 items-center">
-            <SortAZ onToggle={() => setSortAsc(prev => !prev)} />
+            <SortAZ sortAsc={sortAsc} onToggle={setSortAsc} />
           </div>
         </div>
         <EbooksDisplay books={books} />
