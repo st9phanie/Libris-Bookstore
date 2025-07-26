@@ -3,7 +3,7 @@ import { getBookById } from "@/lib/getBookById";
 
 interface BookPageProps {
   params: {
-    bookId: string;
+    bookId: Promise<string | null>;
   };
 }
 
