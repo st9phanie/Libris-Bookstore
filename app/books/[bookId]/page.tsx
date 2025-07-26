@@ -3,10 +3,9 @@ import { getBookById } from "@/lib/getBookById";
 
 type Params = Promise<{ bookId: string }>
 
-export default async function BookInfo(props: { params: Params }) {
-  const params = await props.params;
-
-  const bookid = Number(params.bookId);
+export default async function BookInfo({params}: { params: Params }) {
+  const {bookId} = await params
+  const bookid = Number(bookId);
   const book = await getBookById(bookid);
 
   return (
