@@ -16,7 +16,7 @@ export const EbooksDisplay = ({ books }: { books: ebookAuthorGenre[] }) => {
             alt={pair.title}
             className="h-[200px] w-full object-cover"
           />
-            <p className="font-bold text-sm truncate w-full mt-2 hover:overflow-visible hover:whitespace-normal hover:break-words hover:pt-10 ">{pair.title}</p>
+            <p className="font-bold text-sm truncate w-full mt-2 hover:overflow-visible hover:whitespace-normal hover:break-words">{pair.title}</p>
             {pair.ebookAuthor.map((author, key) => (
               <div key={key} className="text-xs text-gray-600 truncate w-full pb-1 flex flex-row gap-x-[2px] hover:overflow-visible hover:whitespace-normal hover:break-words">
                 <p>{author.authors.firstname} </p>
@@ -26,10 +26,10 @@ export const EbooksDisplay = ({ books }: { books: ebookAuthorGenre[] }) => {
             ))}
           
           <div className="flex flex-row mt-2 items-center justify-between w-full">
-            <p className="text-[var(--primary-orange)] text-base font-semibold">
+            <p className="text-[#0F99BB] text-base font-semibold">
               <span className="text-sm">$</span> {pair.price}
             </p>
-            <button className="text-[#132934] hover:text-[var(--primary-orange)] transition-colors">
+            <button className="text-[#132934] hover:text-[#0F99BB] transition-colors">
               <svg className="cursor-pointer"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

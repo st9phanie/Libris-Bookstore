@@ -1,7 +1,6 @@
 import { cache } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import { ebookAuthorGenre } from '@/types/ebook';
-import { BookAuthorGenre } from '@/types/book';
 
 export const getEbookInfo = cache(async (): Promise<ebookAuthorGenre[]> => {
   const { data, error } = await supabase

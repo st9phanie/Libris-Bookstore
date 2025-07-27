@@ -1,4 +1,3 @@
-// components/BooksDisplay.tsx
 "use client"
 
 import { useState } from "react";
