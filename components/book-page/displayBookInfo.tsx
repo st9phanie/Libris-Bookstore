@@ -1,6 +1,7 @@
 import { BookAuthorGenre } from "@/types/book"
 import Image from "next/image"
 import { bookDetails } from "./bookDetails";
+import { Rating, RatingButton } from '@/components/ui/shadcn-io/rating/index';
 
 export const DisplayBookInfo = async ({ book }: { book: BookAuthorGenre }) => {
     const bookInfo = bookDetails(book);
@@ -30,6 +31,11 @@ export const DisplayBookInfo = async ({ book }: { book: BookAuthorGenre }) => {
                     <div>
                         <p className="text-2xl font-bold ">{book!.title}</p>
                         <p className="text-gray-500 italic  ">By {fullname}</p>
+                        <Rating defaultValue={3} readOnly>
+                            {Array.from({ length: 5 }).map((_, index) => (
+                                <RatingButton key={index} className="text-[#0F99BB]" />
+                            ))}
+                        </Rating>
                         <hr className="my-4 border-gray-300  " />
 
                     </div>
@@ -58,11 +64,18 @@ export const DisplayBookInfo = async ({ book }: { book: BookAuthorGenre }) => {
 
                     </div>
                 </div>
-                <div className="min-h-max bg-white w-3/5 border shadow">
-                    <p>${book.price}</p>
-                    <button>Add to cart</button>
+                <div className="min-h-max bg-white min-w-60 border shadow flex flex-col items-center">
+                    <p className="mt-4">Price: </p>
+                    <p className="text-xl font-semibold ">${book.price}</p>
+                    <div className="flex flex-col gap-y-2 mt-4">
+                        <button className="bg-[#0F99BB] text-white p-2 w-40 rounded-full ">Add to Cart</button>
+                        <button className="bg-[#142934] text-white p-2 w-40 rounded-full">Buy Now</button>
+                    </div>
+
                 </div>
             </div>
+            <hr className="mb-4 mt-10 border-gray-300" />
+
         </div>
     )
 }

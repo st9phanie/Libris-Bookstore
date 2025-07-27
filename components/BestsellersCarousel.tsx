@@ -18,7 +18,7 @@ export const BestsellersCarousel = ({ bookAuthorPairs }: { bookAuthorPairs: Book
   }
   return (
     <div className="w-full flex flex-col items-center px-10 my-10 ">
-      <h2 className="text-3xl max-w-6xl viaoda text-center py-10 text-[#132934] bg-white w-full">
+      <h2 className="text-3xl max-w-6xl font-[Verdana] text-center py-10 text-[#132934] bg-white w-full">
         Bestsellers
       </h2>
 
